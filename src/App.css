@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.board {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(34,34,34);
+}
+
+.board-container{
+    height: 600px;
+    width: 600px;
+}
+
+.square{
+    /*
+     * 100% of the width/height divided into 8 for the 8 row or colum
+     * => 100% / 8 => 12.5%
+     */
+    height:12.5%;
+    width: 12.5%;
+}
