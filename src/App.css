@@ -44,3 +44,17 @@
     height: 100%;
     width: 100%;
 }
+
+.piece-container {
+    cursor: grab;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.piece {
+    max-width: 70%;
+    max-height: 70%;
+}
