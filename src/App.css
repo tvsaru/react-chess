@@ -15,19 +15,32 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(34,34,34);
+    background-color: rgb(79, 132, 157);
 }
 
-.board-container{
+.board-container {
     height: 600px;
     width: 600px;
 }
 
-.square{
+.square {
     /*
      * 100% of the width/height divided into 8 for the 8 row or colum
      * => 100% / 8 => 12.5%
      */
     height:12.5%;
     width: 12.5%;
+}
+
+.square-black {
+    background-color:rgb(98, 62, 62);
+}
+
+.square-white {
+    background-color:bisque;
+}
+
+.board-square{
+    height: 100%;
+    width: 100%;
 }
