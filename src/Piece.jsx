@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames';
 import { useDrag, DragPreviewImage } from 'react-dnd';
 
 export default function Piece({ piece: { type, color } }) {
@@ -31,14 +32,28 @@ export default function Piece({ piece: { type, color } }) {
      * So we use DragPreviewImage to use same piece image to provide
      * transparency.
      */
-    const [, dragSource, dragPreview] = useDrag({
+    const [{ isDragging }, dragSource, dragPreview] = useDrag({
         type: 'piece',
-        id: `${type}_${color}`
+        id: `${type}_${color}`,
+        collect: (monitor) => {
+            return { isDragging: !!monitor.isDragging() }
+        }
     })
+
+    /*
+     * When the piece is being dragged, we will:
+     *   * color the source square
+     *   * hide the piece
+     */
+    const pieceClassString = classNames({
+        "piece-container": true,
+        "piece-container-dragging": isDragging
+    })
+
     return (
         <>
-            <DragPreviewImage connect={dragPreview}></DragPreviewImage>
-            <div className="piece-container" ref={dragPreview} src={pieceImage}>
+            <DragPreviewImage connect={dragPreview} src={pieceImage}></DragPreviewImage>
+            <div className={pieceClassString} ref={dragSource}>
                 <img src={pieceImage} alt={pieceAltText(type, color)} className="piece" />
             </div>
         </>

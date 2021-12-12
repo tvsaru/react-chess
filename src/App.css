@@ -58,3 +58,12 @@
     max-width: 70%;
     max-height: 70%;
 }
+
+.piece-container-dragging {
+    opacity : .5;
+    background-color: greenyellow;
+}
+
+.piece-container-dragging .piece{
+    opacity: 0;
+}
